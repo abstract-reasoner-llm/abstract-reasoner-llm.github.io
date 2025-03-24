@@ -1,0 +1,520 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>mOthello: When Do Cross-Lingual Representation Alignment and Cross-Lingual Transfer Emerge in Multilingual Models?</title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Creative and Descriptive Paper Title." />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<center>
+		<br>
+		<span style="font-size:36px "><b>mOthello: When Do Cross-Lingual Representation Alignment and Cross-Lingual Transfer Emerge in Multilingual Models?</b></span>
+		<br>
+		<br>
+
+		<table align=center width=600px>
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://ethahtz.github.io/">Tianze Hua</a>*</span>
+							<br>
+							<span style="font-size:16px">Brown University</span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://tttyuntian.github.io/">Tian Yun</a>*</span>
+							<br>
+							<span style="font-size:16px">Brown University</span>
+						</center>
+					</td>
+			
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=sFyrSa8AAAAJ&hl=en">Ellie Pavlick</a></span>
+							<br>
+							<span style="font-size:16px">Brown University</span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<br>
+
+			<table align="center" width="300px">
+				<tbody><tr>
+					<td align="center" width="120px">
+						<center>
+							<div class="buttons" style="margin-bottom: 8px;"><a class="btn btn-primary" role="button" href="TODO_ARXIV_LINK">[Paper]</a></div>
+						</center>
+					</td>
+					<td align="center" width="120px">
+						<center>
+							<div class="buttons" style="margin-bottom: 8px;"><a class="btn btn-primary" role="button" href="https://github.com/ethahtz/multilingual_othello">[Code]</a></div>
+						</center>
+					</td>
+				</tr>
+			</tbody></table>
+			
+		</table>
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				Many pretrained multilingual models exhibit cross-lingual transfer ability, which is often attributed to a learned language-neutral representation during pretraining. However, it remains unclear what factors contribute to the learning of a language-neutral representation, and whether the learned language-neutral representation suffices to facilitate cross-lingual transfer. We propose a synthetic task, Multilingual Othello (mOthello), as a testbed to delve into these two questions. 
+				<br><br>
+				We find that: 
+				<ol>
+					<li>models trained with naive multilingual pretraining fail to learn a language-neutral representation across all input languages;</li>
+					<li>the introduction of "anchor tokens" (i.e., lexical items that are identical across languages) helps cross-lingual representation alignment; and</li>
+					<li>the learning of a language-neutral representation alone is not sufficient to facilitate cross-lingual transfer.</li>
+				</ol>
+				Based on our findings, we propose a novel approach -- multilingual pretraining with unified output space -- that both induces the learning of language-neutral representation and facilitates cross-lingual transfer.
+
+			</td>
+		</tr>
+	</table>
+
+	<br><hr>
+
+	<!-- <hr>
+	<center><h1>Video Presentation</h1></center>
+	<p align="center">
+		<iframe width="660" height="395" src="TODO_VIDEO_LINK" frameborder="0" allowfullscreen align="center"></iframe>
+	</p>
+	<hr> -->
+
+	<center><h1>Multilingual Othello</h1></center>
+
+	<table align=center width=400px>
+		<center><tr>
+			<td align=center width=700px>
+				<center>
+					<img class="round" style="width:430px" src="./resources/mappingFuncs.png" alt="An illustration of the mechanism of mapping functions that map Othello game moves into tokens of specific languages."/>
+				</center>
+			</td>
+			<td align=center width=650px>
+				<center>
+					<img class="round" style="width:270px" src="./resources/mothello_corpus.png"/>
+				</center>
+			</td>
+		</tr></center>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					<br>We use Multilingual Othello (mOthello), a sequence modeling task based on the Othello board game to investigate the essential factors for learning language-neutral representations and whether they are sufficient to facilitate the cross-lingual transfer ability of multilingual models. 
+					<br><br>
+					In mOthello, a model is given a sequence of game moves in a specific "language", and the task is to predict the next legal move in the same "language". This environment is appropriate for our purposes, since it separates the ground truth "world" (i.e., the game state) which is assumed to be singular, from the language used to describe it, which can take any number of forms (languages). We later formulate our measure of language-neutral representations around the ground-truth underlying world states. The figures above show how mOthello instances can be used to generate a corpus of multilingual data for training and evaluation. 
+
+					<br><br>
+					To test the generalizability of our findings beyond the simple mOthello languages, we introduce three variants of mOthello languages to mirror features of natural languages:
+					<ol>
+						<li><strong>Atomic language</strong> maps each game move to a single (atomic) language-specific token. For example,  moves <strong>[a1, a2, b1]</strong> are mapped to <em>[a1, a2, b1]</em> in an atomic language.</li>
+						<li><strong>Split language</strong> simulates the scenario when a semantic unit is represented by one or more tokens. In the context of mOthello, this means that each game move can be mapped to one or more tokens in a split language. For example, moves <strong>[a1, a2, b1]</strong> are mapped to <em>[a1<sub>1</sub>, a1<sub>2</sub>, a2<sub>1</sub>, b1<sub>1</sub>, b1<sub>2</sub>, b1<sub>3</sub>]</em> in a split language. The number of tokens each move is split into is sampled randomly from 1 to 3.</li>
+						<li><strong>Compositional language</strong> represents moves by decomposing each of them into its horizontal and vertical location on the board. In this type of language, tokens are reused to represent different moves in a compositional way. For example, moves <strong>[a1, a2, b1]</strong> are mapped to <em>[a, 1, a, 2, b, 1]</em> in a compositional language.</li>
+					</ol>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br><hr>
+
+	<center><h1>Multilingual Pretraining & mOthelloGPT</h1></center>
+	
+
+	<table align=center width=400px>
+		<center><tr>
+			<td align=center width=700px>
+				<center>
+					<img class="round" style="width:900px" src="./resources/teaser_horizontal.png" alt="Illustration of three multilingual training approaches. Blue and green blocks represent contexts in 2 different languages, and tokens from the same language have the same color."/>
+				</center>
+			</td>
+		</tr></center>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					<br>
+					With training data generated via mOthello, we train GPT-2 (mOthelloGPTs) with different multilingual pretraining approaches (as illustrated in the figure above). Block "M" represents an mOthelloGPT. Blue and green blocks represent words in 2 different languages. 
+					<ol type="a">
+						<li><strong>Naive Multilingual Pretraining</strong>: A model is trained on multilingual corpora, with an objective to predict the next tokens specific to each language. </li>
+						<li><strong>Multilingual Pretraining with Anchor Tokens</strong>: A model is trained on multilingual corpora, where there are tokens shared across language pairs. These tokens are named as anchor tokens. The objective is still to predict the next tokens specific to each language. </li>
+						<li><strong>Multilingual Pretraining with Unified Output Space</strong>: A model is trained on multilingual corpora, with an objective to predict the next tokens in a unified output space. </li>
+					</ol>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<br><hr>
+
+	<center><h1>Measuring Representation Alignment and Cross-lingual Transfer</h1></center>
+
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=600px>
+				<center>
+					<td><img class="round" style="width:600px" src="./resources/transfer_probe.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					<br>To measure to what extent the hidden representations of semantically similar tokens across languages align with one another, we propose <b>cross-lingual alignment probes</b>, which is a probe <em>P<sub>src</sub></em> trained to recover the board states with input sequences in language <em>L<sub>src</sub></em> to recover the board states given input sequences in another language <em>L<sub>tgt</sub></em>, in a zero-shot fashion. If a cross-lingual alignment probe can reconstruct the board states in another language accurately, this reflects that there is a shared latent space for language <em>L<sub>src</sub></em> and <em>L<sub>tgt</sub></em>.
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					<br>Cross-lingual transfer ability is the ability to enhance task performance in a target language when being finetuned exclusively with labeled data from the same task, but in a different source language. To measure the cross-lingual transfer ability of mOthelloGPT models, we first pretrain mOthelloGPTs on a prefix-filtered subset of the mOthello corpus, translated to <em>M</em> languages; then, we finetune the pretrained model with a non-prefix-filtered subset of the entire mOthello corpus, but only in one of the languages. We record checkpoints during finetuning process and measure the alignment and performance for each model checkpoint. The performance is measured by calculating the top-1 accuracy of legal move prediction in each language. If a model can achieve better performance in a target language when finetuned solely on the source language, this reflects that the model has good cross-lingual transfer ability.
+					<!-- [fn]By prefix-filtered subset, we mean that all the sequences in that subset share the same first few moves. We use prefix-filtered subset as the pretraining corpus because we do not want the pretrained model to generalize too well, hence leaving room for improvement during the finetuning process.[/fn] -->
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<hr>
+
+	<center><h1>Results</h1></center>
+
+	<table align=center width=850px>
+		<center>
+			<tr align=center>
+				<td>
+					<b>1. Models Trained with Naive Multilingual Pretraining Fail to Learn a Language-neutral Representation, <br> But the Introduction of Anchor Tokens Helps.</b>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=800px>
+				<center>
+					<td><img class="round" style="width:400px" src="./resources/table1.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					The first column of the table above shows the pairwise cross-lingual alignment probe accuracy in mOthelloGPTs trained on different language pairs using the naive training approach (with no anchor tokens). We observe a lack of strong alignment in the representations across all pairs of languages, implying that naive bilingual pretraining without any inductive biases may not yield representation alignment across languages.
+
+					<br><br>
+
+					Multilingual Othello allows us to introduce anchor tokens, which are the shared tokens across languages. We observe that as the number of shared anchor tokens across two languages increases, the alignment of representations improves. More specifically, with 4 shared anchor tokens, the representations already reach nearly perfect alignment for all three language-pair types. This suggests that the introduction of anchor tokens can help induce the learning of language-neutral representations.
+				</td>
+			</tr>
+		</center>
+	</table>
+	
+	<br>
+
+	<table align=center width=850px>
+		<center>
+			<tr align=center>
+				<td>
+					<b>2. Learning Langauge-neutral Representations Is Not Sufficient for Cross-lingual Transfer</b>
+					<br>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=1000px>
+				<center>
+					
+					<td><img class="round" style="width:700px" src="./resources/ftexp_1.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					Next, we study whether aligned cross-lingual representations lead to cross-lingual transfer ability for mOthelloGPTs. The first and second columns in the figure above present cross-lingual transfer results of mOthelloGPTs trained with or without anchor tokens. We observe that
+					<ol>
+						<li>When cross-lingual representations do not align well, mOthelloGPT finetuned on one language does not benefit another language, which means this model does not have cross-lingual transfer ability</li>
+						<li>Even when the cross-lingual representation alignment is high for an mOthelloGPT, cross-lingual transfer still does not occur.</li>
+					</ol>
+					This finding goes against the common belief that cross-lingual representation alignment is a sufficient condition for the emergence of cross-lingual transfer ability in multilingual models.
+				</td>
+			</tr>
+		</center>
+	</table>
+	
+	<br>
+	
+	<table align=center width=850px>
+		<center>
+			<tr align=center>
+				<td>
+					<b>3. Multilingual Pretraining with Unified Output Space Brings Both Representation Alignment and  <br> Cross-Lingual Transfer.</b>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=1000px>
+				<center>
+					
+					<td><img class="round" style="width:700px" src="./resources/ftexp_2.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					The third column in the figure above shows the results of representation alignment and cross-lingual transfer learning under the multilingual pretraining with unified output space. We observe that pretraining with unified output space brings mOthelloGPTs not only cross-lingual alignment, but also cross-lingual transfer ability. Specifically, for mOthelloGPT pretrained with Atomic language pairs, the cross-lingual alignment probe accuracy remains at around 90%, indicating that the FT source language and the target language are well aligned. Moreover, we observe that despite not encountering any sequences from the target language during finetuning, this mOthelloGPT still manages to enhance its performance in predicting next legal moves in language the target language to the same extent as in the FT source language. This indicates that this mOthelloGPT achieves cross-lingual transfer under the unified output space approach. We notice that the cross-lingual transfer ability of mOthelloGPTs trained with Split or Compositional language pairs is slightly weaker, but the pattern that finetuning on the FT source language benefits next move prediction in the target language still holds, especially at early finetuning phase.
+					<br><br>
+					The improvement in performance of target language across three language pairs of structurally different languages implies that multilingual pretraining with unified output space is an effective approach for inducing cross-lingual alignment and cross-lingual transfer ability and is robust to structural differences across languages.
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr align=center>
+				<td>
+					<b>4. Our Results Generalize to Multilingual Trainings with More Than Two Languages</b>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=1000px>
+				<center>
+					
+					<td><img class="round" style="width:800px" src="./resources/mixed_ft.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					Here, we explore whether our findings hold for multilingual models that are trained with more than two languages. The above figure shows the cross-lingual representation alignment and cross-lingual transfer performance of mOthelloGPTs trained with 4 languages consisting of different language types. 
+					We find that the results are consistent with our findings on bilingual mOthelloGPTs: 
+					<ol>
+						<li>While anchor tokens improve representation alignment across languages, it does not help the model to achieve its cross-lingual transfer ability;</li>
+						<li>With the introduction of the unified output token space during multilingual pretraining, both cross-lingual representation alignment and cross-lingual transfer are achieved.</li>
+					</ol>
+					
+					This result suggests that the unified output space approach also generalizes to scenarios when a multilingual model is trained on more than two languages.
+				</td>
+			</tr>
+		</center>
+	</table>
+	
+	<br><hr>
+
+	<table align=center width=650px>
+		<center><h1>Paper and BibTex</h1></center>
+		<tr>
+			<td><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></td>
+			<td><span style="font-size:14pt">Tianze Hua*, Tian Yun*, Ellie Pavlick.<br>
+				<b>mOthello: When Do Cross-Lingual Representation Alignment and Cross-Lingual Transfer Emerge in Multilingual Models?</b><br>
+				In NAACL 2024 (Findings).<br>
+				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td style="background-color:#e1e1e1">
+					<pre><code>
+  @inproceedings{hua2024mothello,
+	title={mOthello: When Do Cross-Lingual Representation Alignment and Cross-Lingual Transfer Emerge in Multilingual Models?},
+	author={Tianze Hua and Tian Yun and Ellie Pavlick},
+	booktitle={2024 Annual Conference of the North American Chapter of the Association for Computational Linguistics},
+	year={2024}
+  }
+					</code></pre>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					We would like to thank the anonymous reviewers for their detailed and constructive comments. Our implementation of GPT2 is based on minGPT, and the overall codebase is mostly built on Othello World. Many thanks to Andrej Karpathy and Kenneth Li for open-sourcing their projects! 
+
+					<br><br>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
